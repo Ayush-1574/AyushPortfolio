@@ -1,0 +1,332 @@
+/* ─── Achievements Grid ─────────────────────────────────────── */
+.ach-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.ach-grid-jee {
+  margin-bottom: 24px;
+}
+
+.ach-grid-olympiad {
+  /* inherits ach-grid styles */
+}
+
+/* ─── Dual-Attempt Blocks ────────────────────────────────────── */
+.ach-attempts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.ach-attempt-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  transition: border-color 0.2s ease;
+}
+
+.ach-attempt-best.ach-best-gold {
+  background: rgba(255, 196, 0, 0.08);
+  border-color: rgba(255, 196, 0, 0.35);
+}
+.ach-attempt-best.ach-best-cyan {
+  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.35);
+}
+
+.ach-attempt-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+}
+
+.ach-best-tag {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.25), rgba(168, 85, 247, 0.2));
+  color: var(--accent-cyan);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.ach-attempt-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+
+/* ─── Card Base ─────────────────────────────────────────────── */
+.ach-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px;
+  border-radius: 18px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ach-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.ach-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ─── Color Variants ────────────────────────────────────────── */
+.ach-gold {
+  border-color: rgba(255, 196, 0, 0.25);
+  background: linear-gradient(135deg, rgba(255, 196, 0, 0.06), rgba(255, 120, 0, 0.04));
+}
+.ach-gold:hover {
+  box-shadow: 0 12px 40px rgba(255, 196, 0, 0.15);
+}
+
+.ach-cyan {
+  border-color: rgba(0, 212, 255, 0.25);
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.06), rgba(168, 85, 247, 0.04));
+}
+.ach-cyan:hover {
+  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.15);
+}
+
+.ach-purple {
+  border-color: rgba(168, 85, 247, 0.25);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.06), rgba(0, 212, 255, 0.04));
+}
+.ach-purple:hover {
+  box-shadow: 0 12px 40px rgba(168, 85, 247, 0.15);
+}
+
+.ach-green {
+  border-color: rgba(52, 211, 153, 0.25);
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.06), rgba(16, 185, 129, 0.04));
+}
+.ach-green:hover {
+  box-shadow: 0 12px 40px rgba(52, 211, 153, 0.15);
+}
+
+/* ─── Top Row ───────────────────────────────────────────────── */
+.ach-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* ─── Icon Wrap ─────────────────────────────────────────────── */
+.ach-icon-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.ach-icon-gold {
+  background: rgba(255, 196, 0, 0.15);
+  border: 1px solid rgba(255, 196, 0, 0.35);
+  color: #ffc400;
+  box-shadow: 0 0 16px rgba(255, 196, 0, 0.2);
+}
+
+.ach-icon-cyan {
+  background: rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  color: var(--accent-cyan);
+  box-shadow: 0 0 16px rgba(0, 212, 255, 0.2);
+}
+
+.ach-icon-purple {
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: #a855f7;
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.2);
+}
+
+.ach-icon-green {
+  background: rgba(52, 211, 153, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  color: #34d399;
+  box-shadow: 0 0 16px rgba(52, 211, 153, 0.2);
+}
+
+/* ─── Badge ─────────────────────────────────────────────────── */
+.ach-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+/* ─── Body ──────────────────────────────────────────────────── */
+.ach-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.ach-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.ach-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.ach-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0 0 12px;
+}
+
+/* ─── Rank Block ─────────────────────────────────────────────── */
+.ach-rank-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+
+.ach-rank-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+.ach-rank-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.ach-rank-gold  { color: #ffc400; text-shadow: 0 0 20px rgba(255, 196, 0, 0.4); }
+.ach-rank-cyan  { color: #00d4ff; text-shadow: 0 0 20px rgba(0, 212, 255, 0.4); }
+.ach-rank-purple { color: #c084fc; text-shadow: 0 0 20px rgba(192, 132, 252, 0.4); }
+.ach-rank-green  { color: #34d399; text-shadow: 0 0 20px rgba(52, 211, 153, 0.4); }
+
+.ach-percentile {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.ach-percentile strong {
+  color: var(--accent-cyan);
+}
+
+/* ─── Tags ──────────────────────────────────────────────────── */
+.ach-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.ach-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  color: #a855f7;
+  letter-spacing: 0.3px;
+}
+
+/* ─── Description ────────────────────────────────────────────── */
+.ach-desc {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ─── Rank value inside attempt blocks (smaller) ─────────────── */
+.ach-attempt-block .ach-rank-value {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+/* ─── Medal Image ─────────────────────────────────────────────── */
+.ach-medal-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin-bottom: 4px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: block;
+}
+
+.ach-card:hover .ach-medal-img {
+  transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .ach-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ach-attempts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+  .ach-attempts {
+    grid-template-columns: 1fr;
+  }
+}
